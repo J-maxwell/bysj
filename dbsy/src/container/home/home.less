@@ -19,28 +19,54 @@
         height: 633px;
         border: 1px solid red;
         .carousel_figure {
-
+          width: 100%;
+          position: absolute;
         }
         .navigation_bar{
           position: absolute;
           top: 20px;
           z-index: 9999;
           width: 100%;
+          opacity: 0.5;
+          font-weight: bold;
+          //border: 1px solid #cccccc;
+        }
+        .navigation_bar :hover{
+          //border:none;
+          //background: black;
         }
       }
       .middle{
         //background: #ECECEC;
         padding: 30px;
-        .wrap{
-          //边框阴影浮动效果未用
-          //transition: all .3s;
-          color: #414757;
-          box-shadow: 0 1px 6px rgba(0,0,0,.2);
-          //overflow: hidden;
-
-          &:hover{
-            box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.2);
-            border-color: rgba(0,0,0,.2);
+        //.wrap{
+        //  //边框阴影浮动效果未用
+        //  //transition: all .3s;
+        //  color: #414757;
+        //  box-shadow: 0 1px 6px rgba(0,0,0,.2);
+        //  //overflow: hidden;
+        //
+        //  &:hover{
+        //    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.2);
+        //    border-color: rgba(0,0,0,.2);
+        //  }
+        //}
+        .strip{
+          display: -webkit-flex; /* Safari */
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content:space-between;
+          > :first-child{
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            -o-text-overflow:ellipsis;
+            overflow:hidden;
+            max-width:450px ;
+            background-image: linear-gradient(to right, deeppink, dodgerblue); -webkit-background-clip: text; color: transparent;
+          }
+          > :first-child+label{
+          white-space:nowrap
           }
         }
       }

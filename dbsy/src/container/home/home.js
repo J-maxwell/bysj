@@ -29,7 +29,7 @@ class Home extends Component {
             locale: null,//语言
             current: 'mail',//导航栏已经点击的栏目
             url: 'https://ant.design',
-            menus: [{title: '我是title1', id: '1'}, {title: '我是title2', id: '2'}, {title: '我是title3', id: '3'}],//card里的条目
+            menus: [{title: '我是title1我是title1我是title1我是title1我是title1我是title1我是title1我是title1',time:'2014-05-23', id: '1'}, {title: '我是title2',time:'2014-05-25', id: '2'}, {title: '我是title3',time:'2014-05-24', id: '3'}],//card里的条目
             options_one: [{title: '请选择类目', extra: <Link to="/login">More</Link>}],//card的head
         };
     }
@@ -57,7 +57,8 @@ class Home extends Component {
             let a = this.state.menus.length;
             // alert(v.title) ;
             let b = [];
-            b.push(<p key={v.id}><Icon type="setting" />{v.title}</p>);
+            b.push(<p key={v.id} className="strip"><label><Icon type="caret-right"/>{v.title}</label><label>{v.time}</label></p>);
+            // b.push(<p key={v.id} style={{border:"1px solid red"}}><Icon type="caret-right"/><label style={{display:"inline-block",width:"250px",border:"1px solid blue"}}>{v.title}</label><label  style={{width:"80px",border:"1px solid yellow",display:"inline-block"}}>{v.time}</label></p>);
             if(i<2){
                 b.push(<Divider/>);
             }
@@ -82,15 +83,16 @@ class Home extends Component {
                                     onClick={this.handleClick}
                                     selectedKeys={[this.state.current]}
                                     mode="horizontal"
-                                    theme="dark"
+                                    // theme="dark"
+                                    style={{background:"transparent",border:"1px solid #cccccc"}}
                                 >
                                     <Menu.Item key="mail">
-                                        <Link to="/login">Navigation One</Link>
+                                        <Link to="/login">全部导航</Link>
                                     </Menu.Item>
                                     <Menu.Item key="app" disabled>
-                                        <Link to="/login">Navigation Two</Link>
+                                        <Link to="/login">光伏发电</Link>
                                     </Menu.Item>
-                                    <SubMenu title={<span><Icon type="setting"/>Navigation Three - Submenu</span>}>
+                                    <SubMenu title={<span><Icon type="setting"/>光伏发电</span>}>
                                         <MenuItemGroup title="Item 1">
                                             <Menu.Item key="setting:1">Option 1</Menu.Item>
                                             <Menu.Item key="setting:2">Option 2</Menu.Item>
@@ -101,8 +103,7 @@ class Home extends Component {
                                         </MenuItemGroup>
                                     </SubMenu>
                                     <Menu.Item key="alipay">
-                                        <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation
-                                            Four - Link</a>
+                                        <a href="https://ant.design" target="_blank" rel="noopener noreferrer">光伏发电</a>
                                     </Menu.Item>
                                 </Menu>
                             </div>
@@ -115,11 +116,11 @@ class Home extends Component {
                                 </Col>
                                 <Col span={8} className="center">
                                     <Card {...this.state.options_one[0]} bordered={true} hoverable={true} >
-                                        <p><Icon type="setting" />中国共产党万岁</p>
+                                        <p><Icon type="caret-right" />中国共产党万岁</p>
                                         <Divider />
-                                        <p><Icon type="setting" />中国共产党万岁</p>
+                                        <p><Icon type="caret-right" />中国共产党万岁</p>
                                         <Divider />
-                                        <p><Icon type="setting" />中国共产党万岁</p>
+                                        <p><Icon type="caret-right" />中国共产党万岁</p>
                                     </Card>
                                 </Col>
                                 <Col span={8} className="right">
