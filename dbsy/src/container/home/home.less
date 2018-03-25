@@ -17,10 +17,9 @@
 
       > .top {
         height: 633px;
-        border: 1px solid red;
         .carousel_figure {
           width: 100%;
-          position: absolute;
+          //position: absolute;
         }
         .navigation_bar{
           position: absolute;
@@ -36,8 +35,36 @@
           //background: black;
         }
       }
-      .middle{
+      .middle {
         //background: #ECECEC;
+        .center {
+          .centerCard {
+            div {
+              display: flex;
+              height: 120px;
+            }
+            div :nth-child(1) {
+              //margin-left: 20px;
+              flex: 12;
+            }
+            div :nth-child(2) {
+              //margin-left: 20px;
+              flex: 1;
+            }
+            div :nth-child(3) {
+              //margin-left: 20px;
+              flex: 12;
+            }
+            div :nth-child(4) {
+              //margin-left: 20px;
+              flex: 1;
+            }
+            div :nth-child(5) {
+              //margin-left: 20px;
+              flex: 12;
+            }
+          }
+        }
         padding: 30px;
         //.wrap{
         //  //边框阴影浮动效果未用
@@ -63,7 +90,8 @@
             -o-text-overflow:ellipsis;
             overflow:hidden;
             max-width:450px ;
-            background-image: linear-gradient(to right, deeppink, dodgerblue); -webkit-background-clip: text; color: transparent;
+            //文字径变
+            //background-image: linear-gradient(to right, deeppink, dodgerblue); -webkit-background-clip: text; color: transparent;
           }
           > :first-child+label{
           white-space:nowrap

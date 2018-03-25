@@ -22,15 +22,18 @@ import 'moment/locale/zh-cn';
 moment.locale('en');
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
+const { Meta } = Card;
 class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
             locale: null,//语言
-            current: 'mail',//导航栏已经点击的栏目
+            current: 'news',//导航栏已经点击的栏目
             url: 'https://ant.design',
-            menus: [{title: '我是title1我是title1我是title1我是title1我是title1我是title1我是title1我是title1',time:'2014-05-23', id: '1'}, {title: '我是title2',time:'2014-05-25', id: '2'}, {title: '我是title3',time:'2014-05-24', id: '3'}],//card里的条目
-            options_one: [{title: '请选择类目', extra: <Link to="/login">More</Link>}],//card的head
+            menus1: [{title: '东北石油大学本科生毕业设计（论文）查重工作顺利展开',time:'2014-05-23', id: '1'}, {title: '关于加强本科毕业设计（论文）考核力度的通知',time:'2014-05-25', id: '2'}, {title: '本科毕业论文规范格式',time:'2014-05-24', id: '3'}, {title: '毕业设计（论文）管理工作流程',time:'2014-05-24', id: '4'}, {title: '东北石油大学本科毕业设计（论文）答辩检查',time:'2014-05-24', id: '5'}],//card里的条目
+            options_one: [{title: '管理规定', extra: <Link to="/login">More</Link>}],//card的head
+            menus2: [{title: '东北石油大学本科生毕业设计（论文）查重工作顺利展开',time:'2014-05-23', id: '1'}, {title: '关于加强本科毕业设计（论文）考核力度的通知',time:'2014-05-25', id: '2'}, {title: '本科毕业论文规范格式',time:'2014-05-24', id: '3'}, {title: '毕业设计（论文）管理工作流程',time:'2014-05-24', id: '4'}, {title: '东北石油大学本科毕业设计（论文）答辩检查',time:'2014-05-24', id: '5'}],//card里的条目
+            options_two: [{title: '通知公告', extra: <Link to="/login">More</Link>}],//card的head
         };
     }
 // 改变语言begin
@@ -52,18 +55,33 @@ class Home extends Component {
     };
 
     render() {
-        let items = this.state.menus.map((v, i) => {
+        this.state.menus1.sort(function (a,b) {
+           return (new Date(b.time)) .getTime()-(new Date(a.time)).getTime()
+        });
+        let items1 = this.state.menus1.map((v, i) => {
             // alert(JSON.stringify(v));
-            let a = this.state.menus.length;
-            // alert(v.title) ;
             let b = [];
-            b.push(<p key={v.id} className="strip"><label><Icon type="caret-right"/>{v.title}</label><label>{v.time}</label></p>);
+            b.push(<p key={i} className="strip"><label><Icon type="caret-right"/>{v.title}</label><label>{v.time}</label></p>);
             // b.push(<p key={v.id} style={{border:"1px solid red"}}><Icon type="caret-right"/><label style={{display:"inline-block",width:"250px",border:"1px solid blue"}}>{v.title}</label><label  style={{width:"80px",border:"1px solid yellow",display:"inline-block"}}>{v.time}</label></p>);
-            if(i<2){
+            if(i<4){
                 b.push(<Divider/>);
             }
             return b;
         });
+
+
+            let items2 = this.state.menus2.map((v, i) => {
+                // alert(JSON.stringify(v));
+                let b = [];
+                b.push(<p key={v.id} className="strip"><label><Icon type="caret-right"/>{v.title}
+                </label><label>{v.time}</label></p>);
+                // b.push(<p key={v.id} style={{border:"1px solid red"}}><Icon type="caret-right"/><label style={{display:"inline-block",width:"250px",border:"1px solid blue"}}>{v.title}</label><label  style={{width:"80px",border:"1px solid yellow",display:"inline-block"}}>{v.time}</label></p>);
+                if (i < 4) {
+                    b.push(<Divider/>);
+                }
+                return b;
+            });
+
         return (
             <LocaleProvider locale={this.state.locale}>
             <div className="outer-container">
@@ -86,45 +104,74 @@ class Home extends Component {
                                     // theme="dark"
                                     style={{background:"transparent",border:"1px solid #cccccc"}}
                                 >
-                                    <Menu.Item key="mail">
-                                        <Link to="/login">全部导航</Link>
+                                    <Menu.Item key="news" disabled>
+                                        <Link to="/login" target="_blank" >最新动态</Link>
                                     </Menu.Item>
-                                    <Menu.Item key="app" disabled>
-                                        <Link to="/login">光伏发电</Link>
-                                    </Menu.Item>
-                                    <SubMenu title={<span><Icon type="setting"/>光伏发电</span>}>
-                                        <MenuItemGroup title="Item 1">
-                                            <Menu.Item key="setting:1">Option 1</Menu.Item>
-                                            <Menu.Item key="setting:2">Option 2</Menu.Item>
-                                        </MenuItemGroup>
-                                        <MenuItemGroup title="Item 2">
-                                            <Menu.Item key="setting:3">Option 3</Menu.Item>
-                                            <Menu.Item key="setting:4">Option 4</Menu.Item>
+                                    <SubMenu title={<span><Icon type="setting"/>毕设管理</span>}>
+                                        <MenuItemGroup>
+                                            <Menu.Item key="setting:1">上传</Menu.Item>
+                                            <Menu.Item key="setting:2">查看成绩</Menu.Item>
+                                            <Menu.Item key="setting:3">查看文档</Menu.Item>
+                                            <Menu.Item key="setting:4">沟通导师</Menu.Item>
                                         </MenuItemGroup>
                                     </SubMenu>
-                                    <Menu.Item key="alipay">
-                                        <a href="https://ant.design" target="_blank" rel="noopener noreferrer">光伏发电</a>
+                                    <Menu.Item key="regulations">
+                                        <Link to="/login" target="_blank" >管理规定</Link>
+                                    </Menu.Item>
+                                    <Menu.Item key="notice" >
+                                        <Link to="/login" target="_blank" >通知公告</Link>
+                                    </Menu.Item>
+                                    <Menu.Item key="about" >
+                                        <Link to="/login" target="_blank" >关于我们</Link>
+                                    </Menu.Item>
+                                    <Menu.Item key="message" >
+                                        <Link to="/login" target="_blank" >留言</Link>
+                                    </Menu.Item>
+                                    <Menu.Item key="download">
+                                        <a href="https://ant.design" target="_blank" >表格下载</a>
                                     </Menu.Item>
                                 </Menu>
                             </div>
                             {/*导航栏end*/}
                         </div>
-                        <div className="middle">
+                        <div className="middle" >
                             <Row gutter={16} className="left">
                                 <Col span={8}>
-                                    <Card {...this.state.options_one[0]} bordered={true} hoverable={true} loading={false}>{items}</Card>
-                                </Col>
-                                <Col span={8} className="center">
-                                    <Card {...this.state.options_one[0]} bordered={true} hoverable={true} >
-                                        <p><Icon type="caret-right" />中国共产党万岁</p>
-                                        <Divider />
-                                        <p><Icon type="caret-right" />中国共产党万岁</p>
-                                        <Divider />
-                                        <p><Icon type="caret-right" />中国共产党万岁</p>
-                                    </Card>
+                                    <Card {...this.state.options_one[0]} bordered={true} hoverable={true} loading={false}>{items1}</Card>
                                 </Col>
                                 <Col span={8} className="right">
-                                    <Card {...this.state.options_one[0]} bordered={true} hoverable={true} loading>{items}</Card>
+                                    <Card {...this.state.options_two[0]} bordered={true} hoverable={true} loading>{items2}</Card>
+                                </Col>
+                                <Col span={8} className="center">
+                                    <Card
+                                        {...this.state.options_one[0]}
+                                        className="centerCard"
+                                        bordered={true} hoverable={true} loading={false}
+                                    >
+                                        <div style={{border:"1px solid red"}}>
+                                        <img style={{width:"100%"}} alt="example" src="/img/home/girl.png"  />
+                                        {/*<Meta*/}
+                                            {/*title="Europe Street beat"*/}
+                                            {/*description="www.instagram.com"*/}
+                                        {/*/>*/}
+                                        </div>
+                                        <div></div>
+                                        <div style={{border:"1px solid red"}}>
+                                            <img style={{width:"100%"}} alt="example" src="/img/home/girl.png" />
+                                            {/*<Meta*/}
+                                                {/*title="Europe Street beat"*/}
+                                                {/*description="www.instagram.com"*/}
+                                            {/*/>*/}
+                                        </div>
+                                        <div></div>
+                                        <div style={{border:"1px solid red"}}>
+                                            <img style={{width:"100%"}} alt="example" src="/img/home/girl.png"  />
+                                            {/*<Meta*/}
+                                                {/*title="Europe Street beat"*/}
+                                                {/*description="www.instagram.com"*/}
+                                            {/*/>*/}
+                                        </div>
+                                    </Card>
                                 </Col>
                             </Row>
                         </div>

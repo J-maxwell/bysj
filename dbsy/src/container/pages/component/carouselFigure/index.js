@@ -23,7 +23,7 @@ class SimpleSlider extends React.Component {
     };
     return (
         <Carousel {...settings}>
-            <div><img src="/img/home/1.jpg"/></div>
+            <div><img src="/img/home/5.jpg"/></div>
             <div><img src="/img/home/2.jpg"/></div>
             <div><img src="/img/home/3.jpg"/></div>
             <div><img src="/img/home/4.jpg"/></div>

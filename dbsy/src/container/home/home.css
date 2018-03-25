@@ -18,11 +18,9 @@
 }
 .outer-container .inner-container > .home > .top {
   height: 633px;
-  border: 1px solid red;
 }
 .outer-container .inner-container > .home > .top .carousel_figure {
   width: 100%;
-  position: absolute;
 }
 .outer-container .inner-container > .home > .top .navigation_bar {
   position: absolute;
@@ -34,6 +32,25 @@
 }
 .outer-container .inner-container > .home .middle {
   padding: 30px;
+}
+.outer-container .inner-container > .home .middle .center .centerCard div {
+  display: flex;
+  height: 120px;
+}
+.outer-container .inner-container > .home .middle .center .centerCard div :nth-child(1) {
+  flex: 12;
+}
+.outer-container .inner-container > .home .middle .center .centerCard div :nth-child(2) {
+  flex: 1;
+}
+.outer-container .inner-container > .home .middle .center .centerCard div :nth-child(3) {
+  flex: 12;
+}
+.outer-container .inner-container > .home .middle .center .centerCard div :nth-child(4) {
+  flex: 1;
+}
+.outer-container .inner-container > .home .middle .center .centerCard div :nth-child(5) {
+  flex: 12;
 }
 .outer-container .inner-container > .home .middle .strip {
   display: -webkit-flex;
@@ -49,9 +66,6 @@
   -o-text-overflow: ellipsis;
   overflow: hidden;
   max-width: 450px ;
-  background-image: linear-gradient(to right, deeppink, dodgerblue);
-  -webkit-background-clip: text;
-  color: transparent;
 }
 .outer-container .inner-container > .home .middle .strip > :first-child + label {
   white-space: nowrap;
