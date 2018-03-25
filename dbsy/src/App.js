@@ -4,6 +4,7 @@ import './App.css';
 import Login from './container/login/login.js';
 import Home from './container/home/home.js';
 import Error from './container/error/error.js';
+import dynamicDetails from './container/pages/mainContent/dynamicDetails/dynamicDetails';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux'
 import {
@@ -22,6 +23,7 @@ class App extends React.Component {
                     <Route path='/login' component={Login}/>
                     <Route path='/home' component={Home}/>
                     <Route path='/error' component={Error}/>
+                    <Route path='/dynamicDetails/:name?' component={dynamicDetails}/>
                     <Route component={Login}/>
                 </Switch>
             </HashRouter>

@@ -1,0 +1,18 @@
+.error {
+  width: 100%;
+  height: 100%;
+  background: url("/img/error/bg.png") no-repeat;
+  position: relative;
+}
+.error > .handle {
+  position: absolute;
+  right: 716px;
+  top: 547px;
+}
+.error > .handle > .home {
+  width: 100px;
+  height: 100px;
+}
+.error > .handle > p {
+  text-align: center;
+}

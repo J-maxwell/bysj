@@ -125,7 +125,7 @@ class Home extends Component {
                                         <Link to="/login" target="_blank" >关于我们</Link>
                                     </Menu.Item>
                                     <Menu.Item key="message" >
-                                        <Link to="/login" target="_blank" >留言</Link>
+                                        <Link to="/dynamicDetails/liuxin" target="_blank" >留言</Link>
                                     </Menu.Item>
                                     <Menu.Item key="download">
                                         <a href="https://ant.design" target="_blank" >表格下载</a>
